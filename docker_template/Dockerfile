@@ -150,6 +150,20 @@ RUN ${ARG_JULIA:-false}     && source /opt/utils/script-utils.sh \
     && echo "@ Version of julia:" && julia --version && julia -e 'using Pkg; for(k,v) in sort(collect(Pkg.installed())); println(k,"==",v); end' \
     || true
 
+# Install Octave and Octave kernal for Jupyter
+RUN ${ARG_OCTAVE:-false}    && source /opt/utils/script-utils.sh \
+    && install_apt   /opt/utils/install_list_octave.apt \
+    && OCTAVE_VERSION="5.1.0" \
+    && OCTAVE_URL="https://ftp.gnu.org/gnu/octave/octave-${OCTAVE_VERSION}.tar.xz" \
+    && install_tar_xz $OCTAVE_URL \
+    && cd /opt/octave-* \
+    && ./configure --prefix=/opt/octave --disable-docs --without-opengl \
+    && make -j8 && make install --prefix=/opt/octave \
+    && rm -rf /opt/octave-* \
+    && echo "PATH=/opt/octave/bin:$PATH"     >> /etc/bash.bashrc \
+    && pip install octave_kernel \
+    && echo "@ Version of Octave:" && /opt/octave/bin/octave --version
+
 # Clean up and display components version information...
 RUN  source /opt/utils/script-utils.sh \
   && install__clean && cd \
