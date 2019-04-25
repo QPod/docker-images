@@ -23,8 +23,11 @@ install_julia()  { julia -e "import Pkg; l=filter(x->length(x)>0, [split(i,r\"%|
 # function to download a ZIP file with wget and unzip it to /opt/
 install_zip()  { wget -nv $1 -O /tmp/TMP.zip && unzip -q /tmp/TMP.zip -d /opt/ && rm /tmp/TMP.zip ; }
 
-# function to download a .tar.gz file with wget and unzip it to /opt/
+# function to download a .tar.gz file with wget and unzip it to /opt/, add a second argument to extract only those file
 install_tar_gz()  { wget -nv $1 -O /tmp/TMP.tar.gz && tar -C /opt/ -xzf /tmp/TMP.tar.gz $2 && rm /tmp/TMP.tar.gz ; }
+
+# function to download a .tar.xz file with wget and unzip it to /opt/, add a second argument to extract only those file
+install_tar_xz()  { wget -nv $1 -O /tmp/TMP.tar.xz && tar -C /opt/ -xJf /tmp/TMP.tar.xz $2 && rm /tmp/TMP.tar.gz ; }
 
 # function to install java packages from a text file which lists JAR file maven full names (add comments with % char)
 install_mvn()  { cat $1 | cut -d "%" -f 1 | xargs -n1 -I {} mvn dependency:copy -DlocalRepositoryDirectory="/tmp/m2repo" -Djavax.net.ssl.trustStorePassword=changeit -Dartifact="{}" -DoutputDirectory="$2" ; }
