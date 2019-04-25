@@ -162,7 +162,8 @@ RUN ${ARG_OCTAVE:-false}    && source /opt/utils/script-utils.sh \
     && rm -rf /opt/octave-* \
     && echo "PATH=/opt/octave/bin:$PATH"     >> /etc/bash.bashrc \
     && pip install octave_kernel \
-    && echo "@ Version of Octave:" && /opt/octave/bin/octave --version
+    && echo "@ Version of Octave:" && /opt/octave/bin/octave --version \
+    || true
 
 # Clean up and display components version information...
 RUN  source /opt/utils/script-utils.sh \
