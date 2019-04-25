@@ -206,6 +206,14 @@ jobs:
           --build-arg "base=jupyter-std"
           --build-arg "ARG_JULIA=true"
 
+    - name: "octave"
+      stage: qpod
+      script:
+        - build_image "${TRAVIS_JOB_NAME}" "docker_template/Dockerfile"
+          --build-arg "repository=${REPOSITORY}"
+          --build-arg "base=jupyter-std"
+          --build-arg "ARG_OCTAVE=true"
+
     - name: "full"
       stage: qpod
       script:
@@ -224,6 +232,7 @@ jobs:
           --build-arg "ARG_R_STUDIO=true"
           --build-arg "ARG_GO=true"
           --build-arg "ARG_JULIA=true"
+          --build-arg "ARG_OCTAVE=true"
         - alias_image "${TRAVIS_JOB_NAME}" "latest"
 
     - name: "full-cuda"
@@ -244,6 +253,7 @@ jobs:
           --build-arg "ARG_R_STUDIO=true"
           --build-arg "ARG_GO=true"
           --build-arg "ARG_JULIA=true"
+          --build-arg "ARG_OCTAVE=true"
         - alias_image "${TRAVIS_JOB_NAME}" "latest-cuda"
 
 
