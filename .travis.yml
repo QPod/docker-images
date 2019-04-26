@@ -20,10 +20,10 @@ before_script:
   - REPOSITORY=$(echo "${REGISTRY_URL}/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}" | awk '{print tolower($0)}')
   - build_image() { TAG=$1; FILE=$2; shift 2; docker build --force-rm=true -t "${REPOSITORY}:$TAG" -f "$FILE" "$@" "$(dirname $FILE)"; }
   - alias_image() { docker tag "${REPOSITORY}:$1" "${REPOSITORY}:$2"; }
-  - push_image()  { docker image prune --force && docker push "${REPOSITORY}"; }
+  - push_image()  { docker push "${REPOSITORY}"; }
 
 after_script:
-  - docker images
+  - docker image prune --force && docker images
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then push_image ; fi
 
 stages:
