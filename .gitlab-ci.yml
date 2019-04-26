@@ -18,7 +18,6 @@ before_script:
   - REPOSITORY=$(echo "${REGISTRY_URL}/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}" | awk '{print tolower($0)}')
   - build_image() { TAG=$1; FILE=$2; shift 2; docker build --force-rm=true -t "${REPOSITORY}:$TAG" -f "$FILE" "$@" "$(dirname $FILE)"; }
   - alias_image() { docker tag "${REPOSITORY}:$1" "${REPOSITORY}:$2"; }
-  - push_image()  { docker image prune --force && docker push "${REPOSITORY}"; }
 
 stages:
   - base
@@ -28,9 +27,12 @@ stages:
 
 .build_tpl: &builder
   before_script:
-    - echo "Building Image> ${CI_JOB_NAME}"
+    - echo "Building Image> ${CI_COMMIT_REF_NAME}:${CI_JOB_NAME}"
   after_script:
-    - push_image
+    - docker images
+    - if [ "$CI_COMMIT_REF_NAME" == "master" ]; then
+        docker image prune --force && docker push "${REPOSITORY}";
+      fi
 
 base:
   <<: *builder
