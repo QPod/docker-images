@@ -16,8 +16,6 @@ before_script:
     fi
   - CI_PROJECT_NAME="qpod"
   - REPOSITORY=$(echo "${REGISTRY_URL}/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}" | awk '{print tolower($0)}')
-  - build_image() { TAG=$1; FILE=$2; shift 2; docker build --force-rm=true -t "${REPOSITORY}:$TAG" -f "$FILE" "$@" "$(dirname $FILE)"; }
-  - alias_image() { docker tag "${REPOSITORY}:$1" "${REPOSITORY}:$2"; }
 
 stages:
   - base
@@ -28,11 +26,14 @@ stages:
 .build_tpl: &builder
   before_script:
     - echo "Building Image> ${CI_COMMIT_REF_NAME}:${CI_JOB_NAME}"
+    - build_image() { TAG=$1; FILE=$2; shift 2; docker build --force-rm=true -t "${REPOSITORY}:$TAG" -f "$FILE" "$@" "$(dirname $FILE)"; }
+    - alias_image() { docker tag "${REPOSITORY}:$1" "${REPOSITORY}:$2"; }
   after_script:
     - docker images
     - if [ "$CI_COMMIT_REF_NAME" == "master" ]; then
         docker image prune --force && docker push "${REPOSITORY}";
       fi
+
 
 base:
   <<: *builder
