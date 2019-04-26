@@ -24,6 +24,8 @@ ARG ARG_GO=false
 
 ARG ARG_JULIA=false
 
+ARG ARG_OCTAVE=false
+
 COPY work /opt/utils/
 
 WORKDIR /opt/utils
