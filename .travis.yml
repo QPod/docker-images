@@ -12,7 +12,7 @@ install:
 
 before_script:
   - echo IP=$(curl -s http://ifconfig.me/ip)
-  - docker info && rm -rf ./.git
+  - docker info
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
       echo "$DOCKER_REGISTRY_PASSWORD" | docker login "${REGISTRY_URL}" -u "$DOCKER_REGISTRY_USER" --password-stdin ;
     fi

@@ -10,7 +10,7 @@ variables:
 
 before_script:
   - apk add --no-cache curl && echo IP=$(curl -s http://ifconfig.me/ip)
-  - docker info && rm -rf ./.git
+  - docker info
   - if [ "$CI_COMMIT_REF_NAME" == "master" ]; then
       echo "$DOCKER_REGISTRY_PASSWORD" | docker login "${REGISTRY_URL}" -u "$DOCKER_REGISTRY_USER" --password-stdin
     fi
