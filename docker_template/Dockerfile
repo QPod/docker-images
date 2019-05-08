@@ -163,7 +163,7 @@ RUN ${ARG_OCTAVE:-false}    && source /opt/utils/script-utils.sh \
     && make -j8 && make install \
     && rm -rf /opt/octave-* \
     && echo "PATH=/opt/octave/bin:$PATH"     >> /etc/bash.bashrc \
-    && pip install octave_kernel \
+    && cd && pip install -Uq octave_kernel \
     && echo "@ Version of Octave:" && /opt/octave/bin/octave --version \
     || true
 
