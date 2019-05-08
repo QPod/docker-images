@@ -12,23 +12,23 @@ liblapack-dev                   % LAPACK: Linear Algebra Package
 libpcre3-dev                    % PCRE: Perl Compatible Regular Expression
 % ==== Strongly recommended
 libreadline-dev                 % GNU Readline: Command-line editing library
+libcurl4-gnutls-dev             % cURL (~1392 KB): ftp objects, urlread/urlwrite, required when installing pckages
+zlib1g-dev                      % Compression library
 % llvm-dev                      % LLVM (~239MB): required for Octave’s experimental just-in-time (JIT) compilation for speeding up the interpreter
-% zlib1g-dev                    % Compression library
 % ==== Strongly recommended: Maths, Matrices, Differential / Algebraic equations, Computational Geometry
 libglpk-dev                     % GLPK (~5071 KB): solving linear programs
 libarpack2-dev                  % ARPACK (~981 KB): eigs function, solution of large-scale eigenvalue problems 
 libqrupdate-dev                 % qrupdate (~358 KB): accelerate QR & Cholesky updating functions
 libsuitesparse-dev              % SuiteSparse (~19.8 MB): -> ordering methods (libamd2:AMD; libcamd2:CAMD; libcolamd2:COLAMD; libccolamd2:CCOLAMD; libcholmod3:CHOLMOD; libumfpack5:UMFPACK; libklu1:KLU; libcxsparse3:CXSparse)
 libfftw3-dev                    % FFTW3 (~23.4 MB): discrete Fourier transform (DFT) in one or more dimensions
+% libqhull-dev                  % Qhull: Computational geometry library, provides functions: convhull, convhulln, delaunay, delaunayn, voronoi, and voronoin
 % ? libsundials-nvecserial2     % SUNDIALS NVECTOR: SUite of Nonlinear and DIfferential/ALgebraic Equation Solvers, solvers ode15i and ode15s
 % ? libsundials-ida2            % SUNDIALS IDA: SUite of Nonlinear and DIfferential/ALgebraic Equation Solvers, solvers ode15i and ode15s
-% libqhull-dev                  % Qhull: Computational geometry library, provides functions: convhull, convhulln, delaunay, delaunayn, voronoi, and voronoin
 % ==== Strongly recommended: Input/Output and multi-media data format, image, audio, etc
 % libgraphicsmagick++1-dev      % GraphicsMagick++: imread, imwrite, imfinfo for read/write image files
 % libsndfile1-dev               % sndfile: audioinfo, audioread, audiowrite; reading and writing files containing sampled audio data
 % portaudio19-dev               % PortAudio: audioplayer, audiorecorder, audiodevinfo
 % libhdf5-serial-dev            % HDF5: load/save HDF5 data files
-% libcurl4-gnutls-dev           % cURL: ftp objects, urlread, urlwrite
 % ==== Fonts, Figures, Rendering
 % libfontconfig1-dev            % Library for configuring and customizing font access, used to manage fonts for Octave’s OpenGL-based graphics functions
 % libfreetype6-dev              % Portable font engine, used to perform font rendering for Octave’s OpenGL-based graphics functions
