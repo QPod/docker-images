@@ -14,6 +14,7 @@ libpcre3-dev                    % PCRE: Perl Compatible Regular Expression
 libreadline-dev                 % GNU Readline: Command-line editing library
 libcurl4-gnutls-dev             % cURL (~1392 KB): ftp objects, urlread/urlwrite, required when installing pckages
 zlib1g-dev                      % Compression library
+openjdk-11-jdk-headless         % OpenJDK headless 11
 % llvm-dev                      % LLVM (~239MB): required for Octave’s experimental just-in-time (JIT) compilation for speeding up the interpreter
 % ==== Strongly recommended: Maths, Matrices, Differential / Algebraic equations, Computational Geometry
 libglpk-dev                     % GLPK (~5071 KB): solving linear programs

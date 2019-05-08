@@ -160,7 +160,7 @@ RUN ${ARG_OCTAVE:-false}    && source /opt/utils/script-utils.sh \
     && install_tar_xz $OCTAVE_URL \
     && cd /opt/octave-* \
     && ./configure --prefix=/opt/octave --disable-docs --without-opengl \
-    && make -j8 && make install \
+    && make -j8 && make install -j8 \
     && rm -rf /opt/octave-* \
     && echo "PATH=/opt/octave/bin:$PATH"     >> /etc/bash.bashrc \
     && cd && pip install -Uq octave_kernel \
