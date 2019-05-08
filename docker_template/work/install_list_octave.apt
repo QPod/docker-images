@@ -30,14 +30,22 @@ libfftw3-dev                    % FFTW3 (~23.4 MB): discrete Fourier transform (
 % libsndfile1-dev               % sndfile: audioinfo, audioread, audiowrite; reading and writing files containing sampled audio data
 % portaudio19-dev               % PortAudio: audioplayer, audiorecorder, audiodevinfo
 % libhdf5-serial-dev            % HDF5: load/save HDF5 data files
-% ==== Fonts, Figures, Rendering
+% ==== Strongly recommended: Fonts, Figures, Rendering
 % libfontconfig1-dev            % Library for configuring and customizing font access, used to manage fonts for Octave’s OpenGL-based graphics functions
 % libfreetype6-dev              % Portable font engine, used to perform font rendering for Octave’s OpenGL-based graphics functions
 % libxft-dev                    % FreeType-based font drawing library for X (development files)
 % gnuplot-x11                   % Command-line driven interactive plotting program
 % libosmesa6-dev                % OSMesa: Mesa Off-screen rendering extension
 % transfig                      % Virtual package pointing to fig2dev, utilities for converting XFig figure files
-% ==== GUIs
+% ==== Strongly recommended: Documentation
+texinfo                         % makeinfo (~15 MB), documentation system for on-line information and printed output
+% libgl2ps-dev                  % Providing high quality vector output for OpenGL application
+% epstool                       % Edit preview images and fix bounding boxes in EPS files
+% pstoedit                      % PostScript and PDF files to editable vector graphics converter
+% lpr                           % Edit preview images and fix bounding boxes in EPS files
+% texlive                       % TeX Live: A decent selection of the TeX Live packages
+% texlive-generic-recommended   % TeX Live: Generic recommended packages
+% ==== GUIs - not installing
 % libgl1-mesa-dev               % OpenGL (~216 MB)
 % libfltk1.3-dev                % FLTK:  cross-platform widget (graphical control element) library for graphical user interfaces (GUIs)
 % qtbase5-dev                   % Qt 5 base development files
@@ -45,14 +53,6 @@ libfftw3-dev                    % FFTW3 (~23.4 MB): discrete Fourier transform (
 % qttools5-dev-tools            % Qt 5 development tools
 % libqscintilla2-dev            % Virtual package pointing to libqscintilla2-qt4-dev  <- ? should be qt5?
 % libqscintilla2-qt5-dev        % QScintilla, Scintilla source code editing widget for Qt, development files
-% ==== Documentation
-% libgl2ps-dev                  % Providing high quality vector output for OpenGL application
-% epstool                       % Edit preview images and fix bounding boxes in EPS files
-% pstoedit                      % PostScript and PDF files to editable vector graphics converter
-% texinfo                       % Documentation system for on-line information and printed output
-% lpr                           % Edit preview images and fix bounding boxes in EPS files
-% texlive                       % TeX Live: A decent selection of the TeX Live packages
-% texlive-generic-recommended   % TeX Live: Generic recommended packages
 % ==== Only required when building from development sources
 % autoconf
 % automake
