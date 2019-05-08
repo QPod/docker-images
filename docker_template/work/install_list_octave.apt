@@ -1,0 +1,48 @@
+% ==== Required build tools
+libblas-dev                 % BLAS
+liblapack-dev               % LAPACK
+libpcre3-dev                % PCRE
+% ==== Required external packages
+libfftw3-dev                % FFTW3
+% libopenblas-dev
+% libqhull7
+% llvm-dev                    % LLVM 239MB
+% libhdf5-serial-dev          % HDF5
+% libgraphicsmagick++-q16-12  % GraphicsMagick++ 5,238 KB
+% libglu1-mesa                % OpenGL 216 MB
+% ==== Required to build from development sources
+% autoconf
+% automake
+% libtool
+% epstool
+% fig2dev
+% gdb
+% ghostscript
+% gnuplot-qt
+% info
+% libamd2
+% libarpack2
+% libbz2-1.0
+% libcamd2
+% libccolamd2
+% libcholmod3
+% libcolamd2
+% libcurl3-gnutls
+% libcxsparse3
+% libfltk-gl1.3
+% libfltk1.3
+% libfontconfig1 libfreetype6
+% libgl2ps1.4
+% libglpk40
+% libklu1
+% libncurses5
+% libportaudio2
+% libqrupdate1
+% libqt5core5a libqt5gui5 libqt5help5 libqt5network5 libqt5opengl5 libqt5printsupport5 libqt5sql5 libqt5widgets5 libqscintilla2-qt5-13
+% libsndfile1 % reading and writing files containing sampled audio data
+% libsundials-ida2
+% libsundials-nvecserial2
+% libumfpack5
+% pstoedit
+% texinfo
+% xz-utils
