@@ -10,121 +10,109 @@ before_script:
   - echo IP=$(curl -s http://ifconfig.me/ip)
   - sync_image_tags() { python ./prepare.py "$@" && ./image-syncer --proc 8 --config ./config.json ; }
 
-stages:
-  - base
-  - cuda
-  - jpy
-  - qpod
 
 jobs:
   include:
     - name: base
-      stage: base
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
 
     - name: "base-cuda_10.1"
-      stage: cuda
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
+    - name: "cuda"
+      script:
+        - sync_image_tags "${TRAVIS_JOB_NAME}"
+
+
     - name: "base-cuda_10.2"
-      stage: cuda
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "base-cuda_11.0"
-      stage: cuda
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
 
     - name: "jupyter-mini"
-      stage: jpy
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "jupyter-mini-cuda"
-      stage: jpy
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "jupyter-std"
-      stage: jpy
       script:
       - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "jupyter-full"
-      stage: jpy
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "jupyter-full-cuda"
-      stage: jpy
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
 
     - name: "r-mini"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "r-std"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "r-latex"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "r-studio"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "py-std"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "py-jdk"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "py-cuda"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "go"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "julia"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "octave"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "full"
-      stage: qpod
+      script:
+        - sync_image_tags "${TRAVIS_JOB_NAME}"
+      
+    - name: "latest"
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
 
     - name: "full-cuda"
-      stage: qpod
       script:
         - sync_image_tags "${TRAVIS_JOB_NAME}"
+    
+    - name: "latest-cuda"
+      script:
+        - sync_image_tags "${TRAVIS_JOB_NAME}"
+
 
 notifications:
   slack: q-pod:lrzKf5Ff1Ao1MGclzElR23j4
