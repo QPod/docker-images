@@ -3,7 +3,7 @@ language: minimal
 dist: focal
 
 install:
-  - IMAGE_SYNCER_URL="https://github.com/AliyunContainerService/image-syncer/releases/download/v1.1.0/image-syncer-v1.1.0-linux-amd64.tar.gz" ;
+  - IMAGE_SYNCER_URL="https://github.com/AliyunContainerService/image-syncer/releases/download/v1.1.0/image-syncer-v1.2.0-linux-amd64.tar.gz" ;
   - wget -nv ${IMAGE_SYNCER_URL} -O tmp.tgz && tar -C ./ -xzf ./tmp.tgz && rm -f ./tmp.tgz ; 
 
 before_script:
@@ -13,106 +13,76 @@ before_script:
 
 jobs:
   include:
+    - name: qpod
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: atom
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
     - name: base
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-
-    - name: "base-cuda_10.1"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "cuda"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-
-    - name: "base-cuda_10.2"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "base-cuda_11.0"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-
-    - name: "jupyter-mini"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "jupyter-mini-cuda"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "jupyter-std"
-      script:
-      - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "jupyter-full"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "jupyter-full-cuda"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-
-    - name: "r-mini"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "r-std"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "r-latex"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "r-studio"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "py-std"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "py-jdk"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "py-cuda"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "go"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "julia"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "octave"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "full"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-      
-    - name: "latest"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
-    - name: "full-cuda"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-    
-    - name: "latest-cuda"
-      script:
-        - sync_image_tags "${TRAVIS_JOB_NAME}"
-
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: core
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-data
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-nlp
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-cv
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-bio
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-chem
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-std
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-jdk
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: r-mini
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: r-std
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: r-latext
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: r-studio
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: node
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: jdk
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: julia
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: go
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: octave
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: cuda_10.0
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: cuda_10.1
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: cuda_10.2
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: cuda_11.0
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-cuda-10.0
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-cuda-10.1
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: py-cuda-10.2
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: full-cuda
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: tf1
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: tf2
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: torch
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: core-dev
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: full
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: cuda-dev
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
+    - name: full-cuda
+      script: sync_image_tags "${TRAVIS_JOB_NAME}"
 
 notifications:
   slack: q-pod:lrzKf5Ff1Ao1MGclzElR23j4

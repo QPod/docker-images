@@ -35,7 +35,9 @@ def generate(image, tags=None):
 
 
 if __name__ == '__main__':
-    tags = sys.argv[1:] or None
-    data = generate(image='qpod/qpod', tags=tags)
+    args = sys.argv[1:]
+    img = args[0]
+    tags = args[1:] or None
+    data = generate(image=img, tags=tags)
     with open('./config.json', 'wt') as fp:
         json.dump(data, fp, ensure_ascii=False, indent=2, sort_keys=True)
