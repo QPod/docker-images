@@ -3,7 +3,7 @@ language: minimal
 dist: focal
 
 install:
-  - IMAGE_SYNCER_URL="https://github.com/AliyunContainerService/image-syncer/releases/download/v1.1.0/image-syncer-v1.2.0-linux-amd64.tar.gz" ;
+  - IMAGE_SYNCER_URL="https://github.com/AliyunContainerService/image-syncer/releases/download/v1.2.0/image-syncer-v1.2.0-linux-amd64.tar.gz" ;
   - wget -nv ${IMAGE_SYNCER_URL} -O tmp.tgz && tar -C ./ -xzf ./tmp.tgz && rm -f ./tmp.tgz ; 
 
 before_script:
