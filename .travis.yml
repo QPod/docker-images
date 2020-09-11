@@ -13,75 +13,75 @@ before_script:
 
 jobs:
   include:
-    - name: qpod
+    - name: qpod/qpod
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: atom
+    - name: qpod/atom
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: base
+    - name: qpod/base
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: core
+    - name: qpod/core
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-data
+    - name: qpod/py-data
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-nlp
+    - name: qpod/py-nlp
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-cv
+    - name: qpod/py-cv
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-bio
+    - name: qpod/py-bio
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-chem
+    - name: qpod/py-chem
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-std
+    - name: qpod/py-std
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-jdk
+    - name: qpod/py-jdk
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: r-mini
+    - name: qpod/r-mini
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: r-std
+    - name: qpod/r-std
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: r-latext
+    - name: qpod/r-latext
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: r-studio
+    - name: qpod/r-studio
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: node
+    - name: qpod/node
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: jdk
+    - name: qpod/jdk
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: julia
+    - name: qpod/julia
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: go
+    - name: qpod/go
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: octave
+    - name: qpod/octave
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: cuda_10.0
+    - name: qpod/cuda_10.0
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: cuda_10.1
+    - name: qpod/cuda_10.1
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: cuda_10.2
+    - name: qpod/cuda_10.2
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: cuda_11.0
+    - name: qpod/cuda_11.0
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-cuda-10.0
+    - name: qpod/py-cuda-10.0
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-cuda-10.1
+    - name: qpod/py-cuda-10.1
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: py-cuda-10.2
+    - name: qpod/py-cuda-10.2
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: full-cuda
+    - name: qpod/full-cuda
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: tf1
+    - name: qpod/tf1
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: tf2
+    - name: qpod/tf2
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: torch
+    - name: qpod/torch
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: core-dev
+    - name: qpod/core-dev
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: full
+    - name: qpod/full
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: cuda-dev
+    - name: qpod/cuda-dev
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
-    - name: full-cuda
+    - name: qpod/full-cuda
       script: sync_image_tags "${TRAVIS_JOB_NAME}"
 
 notifications:

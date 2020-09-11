@@ -11,8 +11,7 @@ def generate(image, tags=None):
         
     tags = ','.join(tags)
 
-    destinations = ['cn-beijing'] # , 'cn-shanghai', 'cn-shenzhen', 'cn-chengdu', 'cn-hongkong', 'us-west-1', eu-central-1
-    destinations = ['registry.%s.aliyuncs.com' % i for i in destinations]
+    destinations = ['docker.pkg.github.com/qpod/docker-images/']
 
     config = {
         "auth": {},
