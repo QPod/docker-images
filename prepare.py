@@ -11,7 +11,7 @@ def generate(image, tags=None):
         
     tags = ','.join(tags)
 
-    destinations = ['docker.pkg.github.com/qpod/docker-images']
+    destinations = ['docker.pkg.github.com']
 
     config = {
         "auth": {},
@@ -28,7 +28,7 @@ def generate(image, tags=None):
             "insecure": True
         }
         
-        config['images']["%s:%s" % (image, tags)] = "%s/%s" % (dest, image)
+        config['images']["qpod/%s:%s" % (image, tags)] = "%s/qpod/docker-images/%s" % (dest, image)
 
     return config
 
