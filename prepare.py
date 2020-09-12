@@ -11,7 +11,7 @@ def generate(image, tags=None):
         
     tags = ','.join(tags)
 
-    destinations = ['docker.pkg.github.com/qpod/docker-images/']
+    destinations = ['docker.pkg.github.com/qpod/docker-images']
 
     config = {
         "auth": {},
