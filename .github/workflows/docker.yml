@@ -30,7 +30,7 @@ jobs:
       - name: Build Docker Images
         run: |
           ls -alh
-          source ./docker-images/tool.sh
+          source ./tool.sh
           build_image atom  latest  docker_atom/Dockerfile
           build_image base  latest  docker_base/Dockerfile
         env:
