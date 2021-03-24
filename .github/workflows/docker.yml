@@ -1,0 +1,53 @@
+name: Build Docker Images
+
+on:
+  pull_request:
+    paths-ignore:
+      - "*.md"
+
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "*.md"
+
+jobs:
+  build:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+    if: >
+      !contains(github.event.head_commit.message, 'ci skip') &&
+      !contains(github.event.pull_request.title, 'ci skip')
+    env:
+      REGISTRY_URL: "docker.io"  # docker.io or other registry URL, DOCKER_REGISTRY_USER/DOCKER_REGISTRY_PASSWORD to be set in CI env.
+    steps:
+      - name: Clone Main Repo
+        uses: actions/checkout@v2
+      - name: Set Up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Setup Environment
+        run: |
+          echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json && sudo service docker restart && docker info
+          python -m pip install --upgrade pip
+      - name: Build Docker Images
+        env:
+          # Full logs for CI build
+          BUILDKIT_PROGRESS: plain
+        run: |
+          NAMESPACE=$(dirname GITHUB_REPOSITORY)
+          CI_PROJECT_NAMESPACE=$(echo "$(dirname ${GITHUB_REPOSITORY})")
+          export NAMESPACE=$(echo "${REGISTRY_URL}/${CI_PROJECT_NAMESPACE}" | awk '{print tolower($0)}')
+          echo '---->' $GITHUB_REPOSITORY $NAMESPACE
+          source ./tool.sh
+          build_image atom      latest  docker_atom/Dockerfile
+          docker images
+      - name: Login to Docker Hub
+        if: github.ref == 'refs/heads/master'
+        run: >
+          echo '${{secrets.DOCKERHUB_PASSWORD}}' | docker login --username
+          '${{secrets.DOCKERHUB_USERNAME}}' --password-stdin
+      - name: Push Images to DockerHub
+        if: github.ref == 'refs/heads/master'
+        run: docker images
