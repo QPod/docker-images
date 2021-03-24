@@ -21,8 +21,6 @@ jobs:
     steps:
       - name: Clone Main Repo
         uses: actions/checkout@v2
-        with:
-          path: main
       - name: Set Up Python
         uses: actions/setup-python@v2
         with:
@@ -45,4 +43,4 @@ jobs:
           '${{secrets.DOCKERHUB_USERNAME}}' --password-stdin
       - name: Push Images to DockerHub
         if: github.ref == 'refs/heads/master'
-        run: make -C main push-all
+        run: docker images
