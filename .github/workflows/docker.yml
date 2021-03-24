@@ -31,9 +31,9 @@ jobs:
         run: python -m pip install --upgrade pip
       - name: Build Docker Images
         run: |
-          source ./tool.sh &&
-          build_image atom  latest  docker_atom/Dockerfile &&
-          build_image base  latest  docker_atom/Dockerfile &&
+          source ./tool.sh
+          build_image atom  latest  docker_atom/Dockerfile
+          build_image base  latest  docker_base/Dockerfile
         env:
           # Full logs for CI build
           BUILDKIT_PROGRESS: plain
